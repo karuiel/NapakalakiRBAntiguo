@@ -5,6 +5,11 @@
 #
 #Hacer prueba main
 #TODO BADCONSEQUENCE
+
+require_relative "prize.rb"
+require_relative "bad_consequence.rb"
+require_relative "monster.rb"
+
 monsters = Array.new
 
 prize = Prize.new(4,2) 
