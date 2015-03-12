@@ -18,7 +18,7 @@ class BadConsequence
                   someSpecificVisibleTreasures, someSpecificHiddenTreasures, newDeath)
     @text = aText
     @levels = someLevels
-    @nVisibleTreasues = someVisibleTreasures
+    @nVisibleTreasures = someVisibleTreasures
     @nHiddenTreasures = someHiddenTreasures
     @specificVisibleTreasures = someSpecificVisibleTreasures
     @specificHiddenTreasures = someSpecificHiddenTreasures
