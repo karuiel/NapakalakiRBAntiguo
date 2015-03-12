@@ -4,13 +4,15 @@
 #encoding: utf­8
 
 class Prize
+  
   attr_reader :treasures
   attr_reader :levels
   
-  def initialize(treasures, levels)
-    @treasures = treasures
-    @levels = levels
+  def initialize(someTreasures, someLevels)
+    @treasures = someTreasures
+    @levels = someLevels
   end
+  
   def to_s
     "Tesoros ganados: #{@treasure} \n Niveles ganados: #{@levels}"
   end

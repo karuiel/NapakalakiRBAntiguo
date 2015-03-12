@@ -9,11 +9,11 @@ class Monster
   attr_reader :price;
   attr_reader :bc;
   
-  def initialize( name, combatLevel, price, bc)
-    @name = name
-    @combatLevel = combatLevel
-    @price = price
-    @bc = bc    
+  def initialize( aName, someCombatLevel, aPrice, aBC)
+    @name = aName
+    @combatLevel = someCombatLevel
+    @price = aPrice
+    @bc = aBC    
   end
   
   def to_s

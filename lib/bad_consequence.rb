@@ -11,37 +11,42 @@ class BadConsequence
   attr_reader :nVisibleTreasures
   attr_reader :nHiddenTreasures
   attr_reader :death
-  #attr_reader :specificHiddenTreasures
-  #attr_reader :specificVisibleTreasures
+  attr_reader :specificHiddenTreasures
+  attr_reader :specificVisibleTreasures
 
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, 
-                  someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
-  
+                  someSpecificVisibleTreasures, someSpecificHiddenTreasures, newDeath)
+    @text = aText
+    @levels = someLevels
+    @nVisibleTreasues = someVisibleTreasures
+    @nHiddenTreasures = someHiddenTreasures
+    @specificVisible = someSpecificVisibleTreasures
+    @specificHiddenTreasures = someSpecificHiddenTreasures
+    @death = newDeath
     
   end
   
   def BadConsequence.newNumberOfTreasures(aText, someLevels, someVisibleTreasures, 
                                           someHiddenTreasures)
-    @text = aText
-    @levels = someLevels
-    @nVisibleTreasures = someVisibleTreasures
-    @nHiddenTreasures = someHiddenTreasures   
+    new(aText, someLevels, someVisibleTreasures, someHiddenTreasures,
+            Array.new, Array.new, false)  
   end
   
   def BadConsequence.newSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, 
                                            someSpecificHiddenTreasures)
-    @test = aText
-    @levels = someLevels
+    new(aText, someLevels, -1, -1, someSpecificVisibleTreasures,
+            someSpecificHiddenTreasures, false)
      
   end                                       
   
   def BadConsequence.newDeath (aText)
-    @text = aText
-    @death = true
+    
+    new(aText, -1, -1, -1, Array.new, Array.new, true)
+    
   end
   
   def to_s
     "Text: #{@text}\nLevels: #{@levels}\nnVisibleTreasures: #{@nVisibleTreasures}\n"+
-    "nHiddenTreasures: #{@nHiddenTreasures}"
+    "nHiddenTreasures: #{@nHiddenTreasures}\nDeath: #{@death}"
   end
 end
