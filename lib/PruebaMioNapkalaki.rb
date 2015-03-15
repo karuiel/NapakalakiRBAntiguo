@@ -66,4 +66,29 @@ badConsequence = BadConsequence.newNumberOfTreasures(
     'tus tesoros visibles de las manos.', 3, 80,0)
 monsters << Monster.new('Bicefalo', 20, prize, badConsequence)
 
+prize = Prize.new(2,1) 
+badConsequence = BadConsequence.newDeath(
+    "Estos monstruos resultan bastante superficiales y te aburren"+
+   "mortalmente. Estas muerto")
+monsters << Monster.new('Bicefalo', 8, prize, badConsequence)
+
+prize = Prize.new(2,1) 
+badConsequence = BadConsequence.newDeath(
+    "Estos monstruos resultan bastante superficiales y te aburren"+
+   "mortalmente. Estas muerto")
+monsters << Monster.new('Bicefalo', 8, prize, badConsequence)
+
+puts "Los monstruos con un nivel menor que 10 son: \n"
+  monsters.each{|x|      
+    if x.combatLevel<10
+   puts x.to_s + "\n"
+    end    
+  }
+puts "Los monstrues cuyo mal rollo solo implica la perdida de nivel son: \n"
+  monsters.each{|x|
+    if ((x.bc.nHiddenTreasures && x.bc.nVisibleTreasures)==0)&&(x.bc.levels!=0)
+    puts x.to_s + "\n"
+    end
+  }
+
 puts monsters[0].to_s
