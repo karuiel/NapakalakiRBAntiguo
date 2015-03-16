@@ -63,6 +63,7 @@ prize = Prize.new(4,2)
 badConsequence = BadConsequence.newNumberOfTreasures('Pierdes 5 niveles y 3 tesoros visibles',
                                                       5 , 3, 0)
 monsters << Monster.new('El rey de rosa', 13, prize, badConsequence)
+#Revisar este montruo creo que el constructor correcto seria number of treasures
 prize = Prize.new(1,1) 
 badConsequence = BadConsequence.newSpecificTreasures(
     'Toses los pulmones y pierdes dos niveles', 2, vacio,vacio)
@@ -83,7 +84,46 @@ monsters << Monster.new('Los hondos', 8, prize, badConsequence)
 prize = Prize.new(2,1) 
 badConsequence = BadConsequence.newNumberOfTreasures(
     "Pierdes 2 niveles y 2 tesoros ocultos",2,0,2)
-monsters << Monster.new('Bicefalo', 8, prize, badConsequence)
+monsters << Monster.new('Semillas Cthulhu', 4, prize, badConsequence)
+
+prize = Prize.new(2,1) 
+tesoro = Array.new(1,TreasureKind::ONEHAND)
+badConsequence = BadConsequence.newSpecificTreasures(
+    "Te intentas escaquear. Pierdes una mano visible",0,tesoro,vacio)
+monsters << Monster.new('Dameargo', 1, prize, badConsequence)
+
+prize = Prize.new(1,1) 
+badConsequence = BadConsequence.newNumberOfTreasures(
+    "Da mucho asquito. Pierdes 3 niveles",3,0,0)
+monsters << Monster.new('Pollipolipo volante', 3, prize, badConsequence)
+
+prize = Prize.new(3,1) 
+badConsequence = BadConsequence.newDeath(
+    "No le hace gracia que pronuncien mal su nombre. Estas muerto")
+monsters << Monster.new('Yskhtihyssg-Goth', 12, prize, badConsequence)
+
+prize = Prize.new(4,1) 
+badConsequence = BadConsequence.newDeath(
+    "La familia te atrapa.Estas muerto")
+monsters << Monster.new('Familia Feliz', 1, prize, badConsequence)
+
+prize = Prize.new(2,1) 
+tesoro = Array.new(1,TreasureKind::BOTHHANDS)
+badConsequence = BadConsequence.newSpecificTreasures(
+    "La quinta directiva primaria te obliga a perder 2 niveles y"+
+      "un tesoro 2 manos visible",2,tesoro,vacio)
+monsters << Monster.new('Roboggoth', 8, prize, badConsequence)
+
+prize = Prize.new(1,1) 
+tesoro = Array.new(1,TreasureKind::HELMET)
+badConsequence = BadConsequence.newSpecificTreasures(
+    "Te asusta en la noche. Pierdes un casco visible.",0,tesoro,vacio)
+monsters << Monster.new('El espia', 5, prize, badConsequence)
+
+prize = Prize.new(1,1) 
+badConsequence = BadConsequence.newNumberOfTreasures(
+    "Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.",2,5,0)
+monsters << Monster.new('El Lenguas', 20, prize, badConsequence)
 
 puts "Los monstruos con un nivel menor que 10 son: \n"
   monsters.each{ |x| 

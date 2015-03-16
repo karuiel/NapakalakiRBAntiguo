@@ -46,11 +46,12 @@ class BadConsequence
   end
   
   def to_s
+    puts "en "
     out="Text: #{@text}\nLevels: #{@levels}\nnVisibleTreasures: #{@nVisibleTreasures}\n"+
     "nHiddenTreasures: #{@nHiddenTreasures}\nDeath: #{@death}\nSpecificVisibleTreasure: "
-    @specificVisibleTreasures.cycle {|x| out += x.to_s }
-    out + "\nSpecificHiddenTreasures: "
-    @specificHiddenTreasures.cycle {|x| out += x.to_s}
+    @specificVisibleTreasures.each {|x| out += x.to_s }
+    out += "\nSpecificHiddenTreasures: "
+    @specificHiddenTreasures.each {|x| out += x.to_s}
     out
    
   end
