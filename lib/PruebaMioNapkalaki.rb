@@ -70,12 +70,11 @@ prize = Prize.new(2,1)
 badConsequence = BadConsequence.newDeath(
     "Estos monstruos resultan bastante superficiales y te aburren"+
    "mortalmente. Estas muerto")
-monsters << Monster.new('Bicefalo', 8, prize, badConsequence)
+monsters << Monster.new('Los hondos', 8, prize, badConsequence)
 
 prize = Prize.new(2,1) 
-badConsequence = BadConsequence.newDeath(
-    "Estos monstruos resultan bastante superficiales y te aburren"+
-   "mortalmente. Estas muerto")
+badConsequence = BadConsequence.newNumberOfTreasures(
+    "Pierdes 2 niveles y 2 tesoros ocultos",2,0,2)
 monsters << Monster.new('Bicefalo', 8, prize, badConsequence)
 
 puts "Los monstruos con un nivel menor que 10 son: \n"
