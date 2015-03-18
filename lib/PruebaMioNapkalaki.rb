@@ -1,10 +1,12 @@
+#!/usr/bin/env ruby
+#encoding: utf-8
 # To change this license header, choose License Headers in Project Properties.
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
-#encoding: utf­8+
+
 #
 #Hacer prueba main
-#TODO BADCONSEQUENCE
+#Cambiar los valores -1 por 0
 
 require_relative "prize.rb"
 require_relative "bad_consequence.rb"
@@ -40,12 +42,12 @@ tesoro = Array.new(1,TreasureKind::ONEHAND)
 badConsequence = BadConsequence.newSpecificTreasures(
     'Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo.' +
     'Descarta 1 mano visible y 1 mano oculta.', 0, tesoro, tesoro)
-monsters << Monster.new('ngeles de la noche ibicenca', 14, prize, badConsequence)
+monsters << Monster.new('Ángeles de la noche ibicenca', 14, prize, badConsequence)
 
 prize = Prize.new(3,1)
 badConsequence = BadConsequence.newNumberOfTreasures('Pierdes todos tus tesoros visibles',
     0, 80,0)
-monsters << Monster.new('El gorron en el umbral', 10, prize, badConsequence) 
+monsters << Monster.new('El gorrón en el umbral', 10, prize, badConsequence) 
 
 prize = Prize.new(2,1) 
 tesoro = Array.new(1,TreasureKind::ARMOR)
@@ -73,7 +75,7 @@ prize = Prize.new(2,1)
 badConsequence = BadConsequence.newNumberOfTreasures(
     'Te faltan manos para tanta cabeza. Pierdes tres niveles y'+
     'tus tesoros visibles de las manos.', 3, 80,0)
-monsters << Monster.new('Bicefalo', 20, prize, badConsequence)
+monsters << Monster.new('Bicéfalo', 20, prize, badConsequence)
 
 prize = Prize.new(2,1) 
 badConsequence = BadConsequence.newDeath(
@@ -138,7 +140,7 @@ monsters.each{ |x|
   end
 }
   
-puts "\nLos monstruos cuyo buen rollo implica una ganancia de mas de un nivel son: "
+puts "\nLos monstruos cuyo buen rollo implica una ganancia de más de un nivel son: "
   monsters.each{ |x|
     if(x.price.levels > 1) 
       puts x.to_s 
