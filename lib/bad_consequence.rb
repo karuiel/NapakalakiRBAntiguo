@@ -35,14 +35,14 @@ class BadConsequence
   
   def BadConsequence.newSpecificTreasures (aText, someLevels, someSpecificVisibleTreasures, 
                                            someSpecificHiddenTreasures)
-    new(aText, someLevels, -1, -1, someSpecificVisibleTreasures,
+    new(aText, someLevels, 0, 0, someSpecificVisibleTreasures,
             someSpecificHiddenTreasures, false)
      
   end                                       
   
   def BadConsequence.newDeath (aText)
     
-    new(aText, -1, -1, -1, Array.new, Array.new, true)
+    new(aText, 0, 0, 0, Array.new, Array.new, true)
     
   end
   
@@ -50,9 +50,17 @@ class BadConsequence
     puts "en "
     out="Text: #{@text}\nLevels: #{@levels}\nnVisibleTreasures: #{@nVisibleTreasures}\n"+
     "nHiddenTreasures: #{@nHiddenTreasures}\nDeath: #{@death}\nSpecificVisibleTreasure: "
-    @specificVisibleTreasures.each {|x| out += x.to_s }
+    if(@specificVisibleTreasures != nil)
+      @specificVisibleTreasures.each {|x| out += x.to_s }
+    else 
+      out += "nil"
+    end
     out += "\nSpecificHiddenTreasures: "
-    @specificHiddenTreasures.each {|x| out += x.to_s}
+    if (@specificHiddenTreasures != nil)
+      @specificHiddenTreasures.each {|x| out += x.to_s}
+    else
+      out += "nil"
+    end  
     out
    
   end

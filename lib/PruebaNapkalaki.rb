@@ -7,11 +7,31 @@
 #
 #Hacer prueba main
 #Cambiar los valores -1 por 0
+#poner if en los initialize
 
 require_relative "prize.rb"
 require_relative "bad_consequence.rb"
 require_relative "monster.rb"
 require_relative "treasure_kind.rb"
+
+
+#-----------------------------Prueba Sesión 1--------------------------
+        
+price = Prize.new(1,1)
+puts "Premio creado: " + price.to_s
+
+text =  "Sientes bichos bajo la ropa. Descarta la armadura visible."
+bc1 =  BadConsequence.newNumberOfTreasures(text,0,1,0);
+bc2 = BadConsequence.newDeath(text);
+#bc3= BadConsequence.newSpecificTreasures(text, 5, TreasureKind::ARMOR, TreasureKind::SHOE)
+puts "Malos rollos creados:" , bc1.to_s, bc2.to_s#, bc3.to_s       
+   
+myMonster =  Monster.new('Monstruito', 8, price, bc1)
+puts "Monstruo creado: " + myMonster.new
+
+
+#---------------------------Declaración de los monstruos------------------------
+
 
 monsters = Array.new
 
@@ -127,27 +147,31 @@ badConsequence = BadConsequence.newNumberOfTreasures(
     "Menudo susto te llevas. Pierdes 2 niveles y 5 tesoros visibles.",2,5,0)
 monsters << Monster.new('El Lenguas', 20, prize, badConsequence)
 
-puts "Los monstruos con un nivel menor que 10 son: \n"
+
+#---------------------------------Consultas-----------------------------------
+
+puts "\nLos monstruos con un nivel superior que 10 son: \n"
   monsters.each{ |x| 
-    if x.combatLevel<10
+    if x.combatLevel>10
       puts x.to_s + "\n"
   end    
   }
-puts "Los monstrues cuyo mal rollo solo implica la perdida de nivel son: \n"
+puts "\n\nLos monstrues cuyo mal rollo solo implica la perdida de nivel son: \n\n"
 monsters.each{ |x|
-  if ((x.bc.nHiddenTreasures && x.bc.nVisibleTreasures)==0)&&(x.bc.levels!=0)
+  if ((x.bc.nHiddenTreasures && x.bc.nVisibleTreasures)==0)&&(x.bc.levels!=0) &&
+      (!x.bc.death)
     puts x.to_s + "\n"
   end
 }
   
-puts "\nLos monstruos cuyo buen rollo implica una ganancia de más de un nivel son: "
+puts "\n\nLos monstruos cuyo buen rollo implica una ganancia de más de un nivel son: \n"
   monsters.each{ |x|
     if(x.price.levels > 1) 
       puts x.to_s 
     end
   }
 
-puts"\nLos monstruos cuyo  mal rollo supone la perdida de al menos un tesoro ONEHAND son:"
+puts"\n\nLos monstruos cuyo  mal rollo supone la perdida de al menos un tesoro ONEHAND son:\n"
   monsters.each{ |x|
     if(x.bc.specificVisibleTreasures.find{|y| y == TreasureKind::ONEHAND})
       puts x.to_s 
