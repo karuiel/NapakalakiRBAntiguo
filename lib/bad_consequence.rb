@@ -47,7 +47,6 @@ class BadConsequence
   end
   
   def to_s
-    puts "en "
     out="Text: #{@text}\nLevels: #{@levels}\nnVisibleTreasures: #{@nVisibleTreasures}\n"+
     "nHiddenTreasures: #{@nHiddenTreasures}\nDeath: #{@death}\nSpecificVisibleTreasure: "
     if(@specificVisibleTreasures != nil)

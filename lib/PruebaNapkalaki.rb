@@ -27,7 +27,7 @@ bc2 = BadConsequence.newDeath(text);
 puts "Malos rollos creados:" , bc1.to_s, bc2.to_s#, bc3.to_s       
    
 myMonster =  Monster.new('Monstruito', 8, price, bc1)
-puts "Monstruo creado: " + myMonster.new
+puts "Monstruo creado: " + myMonster.to_s
 
 
 #---------------------------Declaración de los monstruos------------------------
