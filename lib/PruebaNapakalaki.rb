@@ -36,8 +36,7 @@ puts "Premio creado: " + price.to_s
 
 text =  "Sientes bichos bajo la ropa. Descarta la armadura visible."
 bc1 =  BadConsequence.newNumberOfTreasures(text,0,1,0);
-bc2 = BadConsequence.newDeath(text);
-#bc3= BadConsequence.newSpecificTreasures(text, 5, TreasureKind::ARMOR, TreasureKind::SHOE)
+bc2 = BadConsequence.newDeath(text)
 puts "Malos rollos creados:" , bc1.to_s, bc2.to_s#, bc3.to_s       
    
 myMonster =  Monster.new('Monstruito', 8, price, bc1)
